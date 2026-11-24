@@ -1,9 +1,15 @@
-customers=[
-  (101,"Miller",25000),
-  (102,"Allen",30000),
-  (103,"Blake",35000)
-  (104,"Ravi",32000)
+
+customers = [
+    (101, "Ravi", 25000),
+    (102, "Kiran", 30000),
+    (103, "Arun", 35000),
+    (104, "Priya", 40000),
+    (105, "John", 45000)
 ]
-for customers in cust:
-  print(customer)
-print("customers data loaded successfully.")
+
+print("Customer Processing Started")
+
+for customer in customers:
+    print(customer)
+
+print("Customer Processing Completed")
