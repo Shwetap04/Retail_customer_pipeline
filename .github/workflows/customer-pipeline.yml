@@ -19,8 +19,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Execute Python Script
+      - name: Install PyTest
+        run: python -m pip install pytest
+
+      - name: Run Customer Validation Tests
+        run: python -m pytest -v
+
+      - name: Execute Customer Processing
         run: python customer_processing.py
 
       - name: Display Success
-        run: echo "Customer Processing Executed Successfully 1"
+        run: echo "Customer Processing Completed Successfully"
