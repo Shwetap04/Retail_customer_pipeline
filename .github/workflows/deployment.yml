@@ -1,0 +1,44 @@
+
+name: Retail Customer Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: DEV
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to DEV
+        run: echo "Deployment to DEV Successful"
+
+  deploy-qa:
+    runs-on: ubuntu-latest
+    needs: deploy-dev
+    environment: QA
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to QA
+        run: echo "Deployment to QA Successful"
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    needs: deploy-qa
+    environment: PROD
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to PROD
+        run: echo "Deployment to PROD Successful"
